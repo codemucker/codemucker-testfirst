@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.codemucker.match.*;
-import org.codemucker.match.DefaultMatchContext;
-import org.codemucker.match.Description;
-import org.codemucker.match.MatchDiagnostics;
-import org.codemucker.match.Matcher;
+import org.codemucker.jmatch.*;
 
 public class Scenario {
 
