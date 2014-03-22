@@ -25,7 +25,7 @@
         </dependency>
         <dependency>
             <groupId>org.codemucker</groupId>
-            <artifactId>codemucker-match</artifactId>
+            <artifactId>codemucker-jmatch</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
