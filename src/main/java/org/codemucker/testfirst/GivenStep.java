@@ -46,4 +46,9 @@ public class GivenStep extends ThenStep {
 		step.run(callable);
 		return step;
 	}
+	
+	public <T> GivenStep given(Object instance) {
+		GivenStep step = new GivenStep(scenario, instance);
+		return step;
+	}
 }

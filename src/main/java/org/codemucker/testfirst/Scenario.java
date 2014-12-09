@@ -30,6 +30,9 @@ public class Scenario {
 		Preconditions.checkNotNull(injector,"expect injector");
 		this.name = name;
 		this.injector = injector;
+		if(injector instanceof IRunOnScenarioEnd){
+			registerOnEndListener((IRunOnScenarioEnd)injector);		
+		}
 	}
 	
 	public String getName(){
@@ -123,6 +126,11 @@ public class Scenario {
 		return step;
 	}
 	
+	public <T> GivenStep given(Object instance) {
+		GivenStep step = new GivenStep(this, instance);
+		return step;
+	}
+	
 	<T extends Step> T addStep(T step){
 		steps.add(step);
 		return step;
@@ -189,18 +197,34 @@ public class Scenario {
 		public void invoke() throws Exception;
 	}
 	
+	/**
+	 * Something which inserts something into a datastore
+	 *
+	 */
 	public interface Inserter {
 		public void insert() throws Exception;
 	}
 	
+	/**
+	 * Something which deletes something from a datastore
+	 *
+	 */
 	public interface Deleter {
 		public void delete() throws Exception;
 	}
 	
+	/**
+	 * Something which updates something from a datastore
+	 *
+	 */
 	public interface Updater {
 		public void update() throws Exception;
 	}
 	
+	/**
+	 * Something which fetches  something from a datastore
+	 *
+	 */
 	public interface Fetcher<T> {
 		public T fetch() throws Exception;
 	}
