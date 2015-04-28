@@ -11,7 +11,9 @@
     <packaging>jar</packaging>
     <name>org.codemucker - TestFirst</name>
     <description>Core TestFirst testing library</description>
-    
+        <scm>
+       <developerConnection>scm:git:git@github.com/codemucker/codemucker-testfirst.git</developerConnection>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>org.codemucker</groupId>
